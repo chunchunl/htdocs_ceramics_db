@@ -1,0 +1,311 @@
+:root {
+    /* 背景色系 */
+    --bg-primary: #F8F1E3;    /* 主背景 米白色 */
+    --bg-secondary: #EAEAEA;  /* 次背景 淺灰色 */
+    --bg-sidebar: #2D2D2D;    /* 側邊欄背景 深灰色 */
+    --bg-header: #7B2D12;     /* Header背景 深磚紅 */
+    
+    /* 文字色系 */
+    --text-primary: #3F3F3F;   /* 主要文字 深灰色 */
+    --text-secondary: #6B7280; /* 次要文字 淺灰色 */
+    --text-light: #D1D5DB;     /* 側邊欄未選中文字 淺灰 */
+    --text-white: #FFFFFF;      /* 白色文字 */
+    
+    /* 主題色系 */
+    --brand-primary: #7B2D12;   /* 主色 磚紅 */
+    --brand-secondary: #EA580C; /* 輔助色 深橘 */
+    --brand-light: #F5E3C3;     /* Header按鈕 米黃色 */
+    
+    /* 按鈕色系 */
+    --btn-primary: #9A3412;    /* 主要按鈕 磚紅 */
+    --btn-danger: #DC2626;     /* 危險按鈕 紅色 */
+    --btn-cancel: #D1D5DB;     /* 取消按鈕 淺灰 */
+}
+
+/* 全域樣式 */
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+/* 頁面標題區 */
+.page-header {
+    margin-bottom: 2rem;
+}
+
+.page-title {
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* 麵包屑導航 */
+.breadcrumb {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.breadcrumb a {
+    color: var(--text-secondary);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    color: var(--brand-primary);
+}
+
+/* 按鈕樣式 */
+.btn-primary {
+    background-color: var(--btn-primary);
+    border-color: var(--btn-primary);
+    color: var(--text-white);
+}
+
+.btn-primary:hover {
+    background-color: var(--brand-secondary);
+    border-color: var(--brand-secondary);
+    color: var(--text-white);
+}
+
+.btn-danger {
+    background-color: var(--btn-danger);
+    border-color: var(--btn-danger);
+    color: var(--text-white);
+}
+
+.btn-danger:hover {
+    background-color: #B91C1C;
+    border-color: #B91C1C;
+}
+
+.btn-outline-secondary {
+    color: var(--text-secondary);
+    border-color: var(--btn-cancel);
+    background-color: transparent;
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--text-secondary);
+    border-color: var(--text-secondary);
+    color: var(--text-white);
+}
+
+/* 表格樣式 */
+.table {
+    background-color: var(--text-white);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table th {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border-bottom: 2px solid #dee2e6;
+}
+
+.table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table td.text-start {
+    text-align: left;
+}
+
+.table td.product-name {
+    text-align: left;
+    font-weight: 500;
+}
+
+.table td.product-price {
+    font-weight: 500;
+}
+
+/* 商品圖片 */
+.product-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+/* 操作按鈕 */
+.btn-icon {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    margin: 0 2px;
+}
+
+.action-buttons {
+    white-space: nowrap;
+}
+
+/* 篩選器區塊 */
+.filter-section {
+    background-color: var(--text-white);
+    border: 1px solid var(--bg-secondary);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* 表單區塊 */
+.form-section, .image-section {
+    background-color: var(--text-white);
+    border: 1px solid var(--bg-secondary);
+    padding: 20px;
+    border-radius: 8px;
+    height: 100%;
+}
+
+.form-section {
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* 預覽圖片 */
+.preview-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* 商品詳情頁 */
+.product-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    object-fit: contain;
+}
+
+.product-image:hover {
+    transform: scale(1.02);
+}
+
+.product-info {
+    background-color: var(--text-white);
+    border: 1px solid var(--bg-secondary);
+    padding: 20px;
+    border-radius: 8px;
+    height: 100%;
+}
+
+.info-label {
+    font-weight: bold;
+    color: var(--text-secondary);
+}
+
+/* Modal 樣式 */
+.modal-dialog {
+    max-width: 600px;
+}
+
+.modal-content {
+    background-color: var(--bg-primary);
+}
+
+.modal-header {
+    background-color: var(--bg-header);
+    color: var(--text-white);
+}
+
+.modal-body {
+    background-color: var(--text-white);
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-image {
+    width: 500px;
+    height: 500px;
+    object-fit: contain;
+}
+
+/* 表單元素調整 */
+.form-control:focus {
+    border-color: var(--brand-secondary);
+    box-shadow: 0 0 0 0.25rem rgba(234, 88, 12, 0.25);
+}
+
+.form-select:focus {
+    border-color: var(--brand-secondary);
+    box-shadow: 0 0 0 0.25rem rgba(234, 88, 12, 0.25);
+}
+
+/* 分頁按鈕樣式 */
+.pagination .page-link {
+    color: var(--text-primary);
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--btn-primary);
+    border-color: var(--btn-primary);
+    color: var(--text-white);
+}
+
+.pagination .page-link:hover {
+    background-color: var(--bg-secondary);
+    border-color: var(--bg-secondary);
+    color: var(--brand-primary);
+}
+
+/* 操作按鈕樣式調整 */
+.btn-icon.btn-outline-success {
+    color: #059669;
+    border-color: #059669;
+}
+
+.btn-icon.btn-outline-success:hover {
+    background-color: #059669;
+    color: var(--text-white);
+}
+
+.btn-icon.btn-outline-primary {
+    color: var(--btn-primary);
+    border-color: var(--btn-primary);
+}
+
+.btn-icon.btn-outline-primary:hover {
+    background-color: var(--btn-primary);
+    color: var(--text-white);
+}
+
+.btn-icon.btn-outline-danger {
+    color: var(--btn-danger);
+    border-color: var(--btn-danger);
+}
+
+.btn-icon.btn-outline-danger:hover {
+    background-color: var(--btn-danger);
+    color: var(--text-white);
+}
+
+/* 按鈕間距 */
+.btn + .btn {
+    margin-left: 0.5rem;
+}
+
+/* 其他原有樣式保持不變... */ 
