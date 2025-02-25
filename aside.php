@@ -3,8 +3,8 @@
     <div class="sidenav-header">
         <a class="navbar-brand " href="../index.php">
             <div class="logo-box mt-3">
-                <img src="../logo-img/logo5.png" class="logo-img mb-5" alt="logo">
-                <hr class="horizontal light ">
+                <img src="../logo-img/logo.png" class="logo-img mb-5" alt="logo">
+                <hr class="horizontal light "> 
             </div>
         </a>
     </div>

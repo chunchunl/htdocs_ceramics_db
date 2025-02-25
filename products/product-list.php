@@ -93,13 +93,21 @@ $result = $stmt->get_result();
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../logo-img/head-icon2.png">
+  <link rel="icon" type="image/png" href="../logo-img/head-icon.png">
   <title>
     商品管理
   </title>
   <?php include("../css.php"); ?>
+  <link rel="stylesheet" href="../products/style_p.css">
 
   <style>
+    .filter-section {
+      background-color: #F5E3C3;     /* Header按鈕 米黃色 */
+    
+    }
+  </style>
+
+  <!-- <style>
     .product-img {
       width: 100px;
       height: 100px;
@@ -175,12 +183,12 @@ $result = $stmt->get_result();
 
     .table td.product-price {
       font-weight: 500;
-    }
-  </style>
+    } 
+  </style> -->
 
 </head>
 
-<body class="g-sidenav-show  bg-gray-100">
+<body class="g-sidenav-show">
 
   <?php include("../aside.php"); ?>
 
@@ -211,55 +219,55 @@ $result = $stmt->get_result();
                 <h1 class="page-title">商品列表</h1>
               </div>
 
-              <!-- 篩選器 -->
-              <div class="filter-section">
-                <form class="row g-3" method="GET">
+            <!-- 篩選器 -->
+            <div class="filter-section">
+              <form class="row  mt-3 mx-2" method="GET">
 
-                  <div class="col-md-2">
-                    <select class="form-select" name="category" id="category">
-                      <option value="">所有分類</option>
-                      <?php while ($category = $categories_result->fetch_assoc()): ?>
-                        <option value="<?= $category["name"] ?>"
-                          <?= isset($_GET["category"]) && $_GET["category"] === $category["name"] ? "selected" : "" ?>>
-                          <?= $category["name"] ?>
-                        </option>
-                      <?php endwhile; ?>
-                    </select>
-                  </div>
-                  <div class="col-md-2">
-                    <select class="form-select" name="subcategory" id="subcategory">
-                      <option value="">所有子分類</option>
-                    </select>
-                  </div>
-                  <div class="col-md-2">
-                    <select class="form-select" name="sort">
-                      <option value="newest" <?= $sort === "newest" ? "selected" : "" ?>>最新上架</option>
-                      <option value="oldest" <?= $sort === "oldest" ? "selected" : "" ?>>最舊上架</option>
-                      <option value="price_high" <?= $sort === "price_high" ? "selected" : "" ?>>價格高到低</option>
-                      <option value="price_low" <?= $sort === "price_low" ? "selected" : "" ?>>價格低到高</option>
-                    </select>
-                  </div>
-                  <div class="col-md-2">
-                    <select class="form-select" name="per_page">
-                      <option value="10" <?= $per_page === 10 ? "selected" : "" ?>>每頁 10 筆</option>
-                      <option value="20" <?= $per_page === 20 ? "selected" : "" ?>>每頁 20 筆</option>
-                      <option value="50" <?= $per_page === 50 ? "selected" : "" ?>>每頁 50 筆</option>
-                    </select>
-                  </div>
+                <div class="col-md-2">
+                  <select class="form-select" name="category" id="category">
+                    <option value="">所有分類</option>
+                    <?php while ($category = $categories_result->fetch_assoc()): ?>
+                      <option value="<?= $category["name"] ?>"
+                        <?= isset($_GET["category"]) && $_GET["category"] === $category["name"] ? "selected" : "" ?>>
+                        <?= $category["name"] ?>
+                      </option>
+                    <?php endwhile; ?>
+                  </select>
+                </div>
+                <div class="col-md-2">
+                  <select class="form-select" name="subcategory" id="subcategory">
+                    <option value="">所有子分類</option>
+                  </select>
+                </div>
+                <div class="col-md-2">
+                  <select class="form-select" name="sort">
+                    <option value="newest" <?= $sort === "newest" ? "selected" : "" ?>>最新上架</option>
+                    <option value="oldest" <?= $sort === "oldest" ? "selected" : "" ?>>最舊上架</option>
+                    <option value="price_high" <?= $sort === "price_high" ? "selected" : "" ?>>價格高到低</option>
+                    <option value="price_low" <?= $sort === "price_low" ? "selected" : "" ?>>價格低到高</option>
+                  </select>
+                </div>
+                <div class="col-md-2">
+                  <select class="form-select" name="per_page">
+                    <option value="10" <?= $per_page === 10 ? "selected" : "" ?>>每頁 10 筆</option>
+                    <option value="20" <?= $per_page === 20 ? "selected" : "" ?>>每頁 20 筆</option>
+                    <option value="50" <?= $per_page === 50 ? "selected" : "" ?>>每頁 50 筆</option>
+                  </select>
+                </div>
 
-                  <div class="col-md-3">
-                    <input class="form-control" type="search" name="search"
-                      placeholder="搜尋商品名稱或描述"
-                      value="<?= isset($_GET["search"]) ? htmlspecialchars($_GET["search"]) : "" ?>">
-                  </div>
+                <div class="col-md-3">
+                  <input class="form-control" type="search" name="search"
+                    placeholder="搜尋商品名稱或描述"
+                    value="<?= isset($_GET["search"]) ? htmlspecialchars($_GET["search"]) : "" ?>">
+                </div>
 
-                  <div class="col-md-1">
-                    <button class="btn btn-primary w-100" type="submit">
-                      <i class="bi bi-search"></i>
-                    </button>
-                  </div>
-                </form>
-              </div>
+                <div class="col-md-1">
+                  <button class="btn btn-primary w-100" type="submit">
+                    <i class="bi bi-search"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
 
               <div class="d-flex justify-content-between mb-3">
                 <div>

@@ -93,87 +93,206 @@ body {
 
 /* 表格樣式 */
 .table {
-    background-color: var(--text-white);
-    border-radius: 8px;
+    background-color: #FFFFFF;
+    border-radius: 1.25rem;
     overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
 }
 
-.table th {
+.table thead th {
     background-color: var(--bg-secondary);
     color: var(--text-primary);
-    border-bottom: 2px solid #dee2e6;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 1.25rem 1rem;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.table td {
-    text-align: center;
+.table tbody td {
+    padding: 1.25rem 1rem;
     vertical-align: middle;
-}
-
-.table td.text-start {
-    text-align: left;
-}
-
-.table td.product-name {
-    text-align: left;
-    font-weight: 500;
-}
-
-.table td.product-price {
-    font-weight: 500;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    font-size: 0.95rem;
 }
 
 /* 商品圖片 */
 .product-img {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     object-fit: cover;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.product-img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 商品名稱 */
+.product-name {
+    font-weight: 500;
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.product-name:hover {
+    color: var(--secondary);
+}
+
+/* 價格 */
+.product-price {
+    font-weight: 600;
+    color: var(--main-text);
 }
 
 /* 操作按鈕 */
 .btn-icon {
-    width: 32px;
-    height: 32px;
-    padding: 0;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 4px;
-    margin: 0 2px;
+    width: 36px;
+    height: 36px;
+    border-radius: 0.75rem;
+    margin: 0 0.35rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-.action-buttons {
-    white-space: nowrap;
+.btn-icon:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* 篩選器區塊 */
+.btn-icon i {
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+/* 篩選器區域 */
 .filter-section {
-    background-color: var(--text-white);
-    border: 1px solid var(--bg-secondary);
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 20px;
+    background-color: #2D2D2D;    /* 側邊欄背景 深灰色 */
+    padding: 1.75rem;
+    border-radius: 1.25rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2.5rem;
 }
 
-/* 表單區塊 */
-.form-section, .image-section {
-    background-color: var(--text-white);
-    border: 1px solid var(--bg-secondary);
-    padding: 20px;
-    border-radius: 8px;
-    height: 100%;
+.filter-section .form-control,
+.filter-section .form-select {
+    border: 1.5px solid var(--bg-secondary);
+    border-radius: 0.75rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
 }
 
-.form-section {
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+.filter-section .form-control:focus,
+.filter-section .form-select:focus {
+    border-color: var(--brand-primary);
+    box-shadow: 0 0 0 3px rgba(123, 45, 18, 0.1);
 }
 
-/* 預覽圖片 */
-.preview-image {
-    max-width: 100%;
-    height: auto;
-    margin-top: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+.filter-section .btn-primary {
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* 分頁導航 */
+.pagination {
+    margin-top: 2.5rem;
+    gap: 0.5rem;
+}
+
+.page-link {
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.page-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.page-item.active .page-link {
+    background-color: var(--brand-primary);
+    box-shadow: 0 4px 8px rgba(123, 45, 18, 0.2);
+}
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+    .table tbody td {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .table tbody td::before {
+        font-size: 0.85rem;
+        opacity: 0.8;
+        margin-bottom: 0.5rem;
+    }
+    
+    .product-img {
+        width: 70px;
+        height: 70px;
+        border-radius: 0.5rem;
+    }
+    
+    .filter-section {
+        padding: 1.25rem;
+    }
+    
+    .btn-icon {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+/* 頁面標題區域 */
+.page-header {
+    margin-bottom: 2rem;
+}
+
+.page-title {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: var(--main-text);
+    margin-bottom: 1rem;
+}
+
+/* 統計資訊 */
+.stats-info {
+    color: var(--sub-text);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+/* 新增按鈕 */
+.btn-add {
+    padding: 0.75rem 1.75rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 8px rgba(123, 45, 18, 0.2);
+}
+
+.btn-add:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(123, 45, 18, 0.3);
+}
+
+/* 表格容器 */
+.table-container {
+    background-color: #FFFFFF;
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
 }
 
 /* 商品詳情頁 */
@@ -253,23 +372,6 @@ body {
 .form-select:focus {
     border-color: var(--brand-secondary);
     box-shadow: 0 0 0 0.25rem rgba(234, 88, 12, 0.25);
-}
-
-/* 分頁按鈕樣式 */
-.pagination .page-link {
-    color: var(--text-primary);
-}
-
-.pagination .page-item.active .page-link {
-    background-color: var(--btn-primary);
-    border-color: var(--btn-primary);
-    color: var(--text-white);
-}
-
-.pagination .page-link:hover {
-    background-color: var(--bg-secondary);
-    border-color: var(--bg-secondary);
-    color: var(--brand-primary);
 }
 
 /* 操作按鈕樣式調整 */

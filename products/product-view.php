@@ -40,7 +40,7 @@ $product = $result->fetch_assoc();
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="../logo-img/head-icon2.png">
+    <link rel="icon" type="image/png" href="../logo-img/head-icon.png">
     <title>
         商品檢視
     </title>
@@ -138,7 +138,7 @@ $product = $result->fetch_assoc();
 
 </head>
 
-<body class="g-sidenav-show  bg-gray-100">
+<body class="g-sidenav-show">
 
     <?php include("../aside.php"); ?>
 
@@ -174,7 +174,7 @@ $product = $result->fetch_assoc();
                                     </a>
                                 </div>
                                 <div>
-                                <h1 class="page-title"><?= $product["name"] ?></h1>
+                                <h1 class="page-title ms-3"><?= $product["name"] ?></h1>
                                 </div>
                                 
                             </div>
